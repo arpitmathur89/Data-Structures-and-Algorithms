@@ -30,7 +30,7 @@ public class AllPalidromicSubsequences {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String abc = "2 3 5";
-		StringBuilder sb = new StringBuilder();
+		// StringBuilder sb = new StringBuilder();
 		
 		
 		String[] sample = {"arpit","anshul","mathur","break"};

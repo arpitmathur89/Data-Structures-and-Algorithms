@@ -109,6 +109,7 @@ public class RobotInGridFindPath {
 		return result;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void findAllPathDP(int[][] matrix, int row,int col,ArrayList<Point> path,ArrayList<ArrayList<Point>> result){
 		if(row<0 || col <0)
 			return;

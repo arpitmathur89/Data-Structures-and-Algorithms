@@ -1,5 +1,4 @@
 package dynamicprogramming;
-import java.io.InputStream;
 import java.util.*;
 
 public class Fibonacci {
@@ -9,8 +8,8 @@ public class Fibonacci {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a Number : ");
 		int num =sc.nextInt();
-		//System.out.println(fib(num));
-		
+		System.out.println(fib(num));
+		sc.close();
 		System.out.println(fibonacci(num));
 		System.out.println(fibo(num));
 		System.out.println(fibonacci_nospace(num));
