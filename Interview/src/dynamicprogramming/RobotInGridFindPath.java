@@ -118,7 +118,9 @@ public class RobotInGridFindPath {
 		Point p = new Point(row,col);
 		path.add(0,p);
 		if(row == 0 && col==0){
-			result.add((ArrayList<Point>) path.clone());
+			// deep copy
+			result.add( new ArrayList<Point> (path));
+			return;
 		}
 		
 		findAllPathDP(matrix,row-1,col,path,result);
