@@ -17,7 +17,7 @@ If nums = [1,2,3], a solution is:
   [1,2,3],
   [1,3],
   [2,3],
-  [1,2],
+  [1,2],y
   []
 ]
  * 
@@ -30,6 +30,7 @@ public class Powersets {
 		set.add(1);
 		set.add(2);
 		set.add(3);
+		
 		
 		System.out.println(getSubset(set,0));
 		
