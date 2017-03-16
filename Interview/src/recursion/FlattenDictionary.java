@@ -46,6 +46,7 @@ public class FlattenDictionary {
 		hmap1.put("c", hmap2);
 		hmap.put("key2", hmap1);
 		System.out.println(FlatDictionary(hmap));
+
 	}
 
 	public static HashMap<String,String> FlatDictionary(HashMap<Object,Object> dict){
