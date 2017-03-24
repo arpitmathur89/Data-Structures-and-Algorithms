@@ -13,6 +13,10 @@ public class WordBreak {
 		dict.add("e");
 		dict.add("d");
 		System.out.println(wordBreak("leetcode", dict));
+		StringBuilder sb = new StringBuilder("Arpit");
+		System.out.println(sb);
+	
+		
 	}
 	
 	public static boolean wordBreak(String s, List<String> dict) {
