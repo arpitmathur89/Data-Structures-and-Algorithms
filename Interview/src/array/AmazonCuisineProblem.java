@@ -1,8 +1,114 @@
 package array;
 import java.util.*;
 
-public class AmazonCuisineProblem {
 
+public class AmazonCuisineProblem {
+	
+public static class Pair<F,S> {
+		
+		public Pair(F first, S second){
+			this.first = first;
+			this.second = second;
+		}
+		
+		private F first;
+		private S second;
+		
+		public F getFirst() {
+			return first;
+		}
+		public void setFirst(F first) {
+			this.first = first;
+		}
+		public S getSecond() {
+			return second;
+		}
+		public void setSecond(S second) {
+			this.second = second;
+		}
+		
+		@Override
+		public String toString(){
+			return  this.first.toString() + ":" + this.second.toString(); 
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		
+		ArrayList<Pair<String, String>> lunchMenuPairs = new ArrayList<Pair<String, String>>();
+		Pair<String, String> inner1 = new Pair<String, String>("Chole","Indian");
+		lunchMenuPairs.add(inner1);
+		Pair<String, String> inner2 = new Pair<String, String>("Chat","Indian");
+		lunchMenuPairs.add(inner2);
+		Pair<String, String> inner3 = new Pair<String, String>("Pasta","Italian");
+		lunchMenuPairs.add(inner3);
+		Pair<String, String> inner4 = new Pair<String, String>("Noodles","Chinese");
+		lunchMenuPairs.add(inner4);
+		Pair<String, String> inner5 = new Pair<String, String>("Manchurian","Chinese");
+		lunchMenuPairs.add(inner5);
+
+	
+		ArrayList<Pair<String, String>> teamCuisinePreference = new ArrayList<Pair<String, String>>();
+		
+		Pair<String, String> sublst1 = new Pair<String, String>("Arpit","Indian");
+		teamCuisinePreference.add(sublst1);
+		
+		Pair<String, String> sublst2 = new Pair<String, String>("Arpit","Chinese");
+		teamCuisinePreference.add(sublst2);
+		
+		Pair<String, String> sublst3 = new Pair<String, String>("Vimarsh","Italian");
+		teamCuisinePreference.add(sublst3);
+		
+		Pair<String, String> sublst4 = new Pair<String, String>("Mishra","*");
+		teamCuisinePreference.add(sublst4);
+		
+		Pair<String, String> sublst5 = new Pair<String, String>("Harish","Thai");
+		teamCuisinePreference.add(sublst5);
+		
+		System.out.println(generatePairs(lunchMenuPairs,teamCuisinePreference));
+		
+	}
+	
+	public static ArrayList<Pair<String,String>> generatePairs(ArrayList<Pair<String, String>> lunchMenuPairs, ArrayList<Pair<String, String>> teamCuisinePreference){
+		
+		ArrayList<Pair<String, String>> finalList = new ArrayList<Pair<String, String>>();
+		
+		List<String> allLunch = new ArrayList<String>();
+		
+		HashMap<String, List<String>> hmap = new HashMap<>();
+		
+		for(Pair<String,String> lunchPair : lunchMenuPairs){
+			allLunch.add(lunchPair.getFirst());
+			if(hmap.containsKey(lunchPair.getSecond())){
+				List<String> temp = hmap.get(lunchPair.getSecond());
+				temp.add(lunchPair.getFirst());
+				hmap.put(lunchPair.getSecond(), temp);
+			}
+			else{
+				List<String> temp = new ArrayList<String>();
+				temp.add(lunchPair.getFirst());
+				hmap.put(lunchPair.getSecond(), temp);
+			}
+		}
+		
+		hmap.put("*", allLunch);
+		
+		for(Pair<String,String> TeamPair : teamCuisinePreference){
+				if(hmap.containsKey(TeamPair.getSecond())){
+					List<String> lunches = hmap.get(TeamPair.getSecond());
+					for(String lunch: lunches){
+						Pair<String,String> teamlunch = new Pair<String, String>(TeamPair.getFirst(),lunch);
+						finalList.add(teamlunch);					
+					}
+				}
+			}
+				
+		return finalList;
+	}
+
+/*
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<ArrayList<String>> lunchMenuPairs = new ArrayList<ArrayList<String>>();
@@ -85,7 +191,6 @@ public class AmazonCuisineProblem {
 		
 		return finalList;
 	}
-	
-	
+	*/	
 
 }

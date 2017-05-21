@@ -18,17 +18,7 @@ public class BinaryPalindrome {
 	       binary[index++] = n%2;
 	       n = n/2;
 	     }
-	     
-	     
-	     
-	     
-	     /*
-	     int[] nums = new int[index]; 
-	     for(int i = index-1;i >= 0;i--){
-	         nums[index-i-1] = binary[i];
-	       }
-	    System.out.println(Arrays.toString(nums));
-		*/
+	   
 		int l = 0;
 	    int m = index - 1;
 	    int result = 1;
@@ -40,5 +30,13 @@ public class BinaryPalindrome {
 	        --m;
 	    }
 	    return result;
+	    
+	    /*
+	     int[] nums = new int[index]; 
+	     for(int i = index-1;i >= 0;i--){
+	         nums[index-i-1] = binary[i];
+	       }
+	    System.out.println(Arrays.toString(nums));
+		*/
 	}
 }
