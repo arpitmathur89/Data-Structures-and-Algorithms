@@ -29,8 +29,8 @@ public class LongestLine {
 	    if (n == 0) 
 	    	return max;
 	   
-	    int[][][] dp = new int[n][m][4];
-	    
+	    int[][][] dp = new int[n][m][4];  // 3D array to store horizontal,vertical,and 2 diagonals
+	    								  // consecutive ones separately.	
 	    for (int i=0;i<n;i++) 
 	        for (int j=0;j<m;j++) {
 	            if (M[i][j] == 0) continue;
