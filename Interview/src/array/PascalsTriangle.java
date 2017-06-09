@@ -1,7 +1,12 @@
 package array;
 
 import java.util.*;
-
+/*
+ * 
+ * Both Pascal's Triangle I and II
+ * 
+ * 
+ */
 public class PascalsTriangle {
 
 	public static void main(String[] args) {
