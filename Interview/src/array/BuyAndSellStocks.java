@@ -6,6 +6,7 @@ public class BuyAndSellStocks {
 		
 		int[] prices = {7, 1, 5, 3, 6, 4};
 		System.out.println(maxProfit(prices));
+		System.out.println(maxProfitI(prices));
 		System.out.println(maxProfit2(prices));
 	}
 	
@@ -20,6 +21,17 @@ public class BuyAndSellStocks {
  * Output: 5
  * 
  */
+	// Better Approach then using Kadane's
+	public static int maxProfitI(int[] prices) {
+		int max = 0;
+		int min = prices[0];
+		for(int i=0;i<prices.length;i++){
+			min =  Math.min(min, prices[i]);
+			max = Math.max(max, prices[i]-min);
+		}
+		return max;	
+	}
+	
 	public static int maxProfit(int[] prices) {
 		
 		// Kadane's Algorithm Variation
