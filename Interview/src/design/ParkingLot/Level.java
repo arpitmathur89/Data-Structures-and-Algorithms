@@ -30,16 +30,19 @@ public class Level {
         }
         while(i<carSpots+mcSpots){
             spots[i] = new ParkingSpot(this,i,VehicleSize.Motorcycle);
+            i++;
         }
         while (i<numsSpots){
             spots[i] = new ParkingSpot(this,i,VehicleSize.Large);
+            i++;
         }
     }
 
     public int getAvailableSpots(Vehicle v) {
 
-        if(v.getSize().equals(VehicleSize.Compact))
-             return getCarSpots() -1;
+        if(v.getSize().equals(VehicleSize.Compact)) {
+            return getCarSpots() - 1;
+        }
         else if(v.getSize().equals(VehicleSize.Motorcycle))
             return getMcSpots() -1;
         else if(v.getSize().equals(VehicleSize.Large))
@@ -49,9 +52,11 @@ public class Level {
     }
 
     public boolean ParkVehicle(Vehicle v){
-        if(getAvailableSpots(v) > 0)
-            if(findSpot(v))
+        if(getAvailableSpots(v) >= 0) {
+            if (findSpot(v))
                 return true;
+        }
+        System.out.println("No Available spots at Level "+ level);
         return false;
     }
 
