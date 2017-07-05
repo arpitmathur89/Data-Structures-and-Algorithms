@@ -5,16 +5,15 @@ package design.ParkingLot;
  */
 public class ParkingSpot {
 
-    private int spotNumber;
-    private Vehicle vehicle;
-    private VehicleSize spotSize;
     private Level level;
+    private int spotNumber;
+    private VehicleSize spotSize;
+    private Vehicle vehicle;
 
-    public ParkingSpot(int spotNumber, Vehicle vehicle, VehicleSize spotSize, Level level) {
-        this.spotNumber = spotNumber;
-        this.vehicle = vehicle;
-        this.spotSize = spotSize;
+    public ParkingSpot( Level level, int spotNumber, VehicleSize spotSize) {
         this.level = level;
+        this.spotNumber = spotNumber;
+        this.spotSize = spotSize;
     }
 
     public boolean isAvailable(){
@@ -31,9 +30,12 @@ public class ParkingSpot {
         if(!canFitVehicle(v))
             return false;
         vehicle = v;
-
         return true;
 
+    }
+
+    public void removeVehicle(){
+        vehicle = null;
     }
 
 
